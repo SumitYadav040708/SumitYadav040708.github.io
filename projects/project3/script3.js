@@ -1,72 +1,94 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let draggedItem = null;
+  // DOM Elements
+  const newTaskInput = document.getElementById("new-task-input");
+  const addTaskBtn = document.getElementById("add-task-btn");
+  const todoColumn = document.getElementById("todo");
+  const inProgressColumn = document.getElementById("in-progress");
+  const doneColumn = document.getElementById("done");
 
-  // Initialize all task and column elements
-  const tasks = document.querySelectorAll(".task");
-  const columns = document.querySelectorAll(".column");
-
-  // Add event listeners to tasks
-  tasks.forEach(task => {
-    task.addEventListener("dragstart", handleDragStart);
-    task.addEventListener("dragend", handleDragEnd);
+  // Add new task
+  addTaskBtn.addEventListener("click", addNewTask);
+  newTaskInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") addNewTask();
   });
 
-  // Add event listeners to columns
-  columns.forEach(column => {
-    column.addEventListener("dragover", handleDragOver);
-    column.addEventListener("dragenter", handleDragEnter);
-    column.addEventListener("dragleave", handleDragLeave);
-    column.addEventListener("drop", handleDrop);
-  });
+  // Initialize drag-and-drop
+  initDragAndDrop();
 
-  // Event handlers
-  function handleDragStart(e) {
-    draggedItem = this;
-    this.classList.add("dragging");
-    e.dataTransfer.setData("text/plain", this.textContent);
-    e.dataTransfer.effectAllowed = "move";
+  function addNewTask() {
+    const taskText = newTaskInput.value.trim();
+    if (!taskText) return;
+
+    const taskElement = createTaskElement(taskText);
+    todoColumn.querySelector(".tasks").appendChild(taskElement);
+    newTaskInput.value = "";
   }
 
-  function handleDragEnd() {
-    this.classList.remove("dragging");
-    columns.forEach(col => col.classList.remove("highlight"));
-  }
-
-  function handleDragOver(e) {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = "move";
-  }
-
-  function handleDragEnter(e) {
-    e.preventDefault();
-    this.classList.add("highlight");
-  }
-
-  function handleDragLeave() {
-    this.classList.remove("highlight");
-  }
-
-  function handleDrop(e) {
-    e.preventDefault();
-    this.classList.remove("highlight");
-
-    // Don't do anything if dropping on same column
-    if (draggedItem.parentElement === this) return;
-
-    // Create a new task element
-    const newTask = document.createElement("div");
-    newTask.className = "task";
-    newTask.draggable = true;
-    newTask.textContent = draggedItem.textContent;
+  function createTaskElement(text) {
+    const task = document.createElement("div");
+    task.className = "task";
+    task.draggable = true;
     
-    // Add event listeners to the new task
-    newTask.addEventListener("dragstart", handleDragStart);
-    newTask.addEventListener("dragend", handleDragEnd);
+    task.innerHTML = `
+      <span>${text}</span>
+      <button class="remove-btn">×</button>
+    `;
     
-    // Append to the new column
-    this.appendChild(newTask);
+    // Add remove functionality
+    task.querySelector(".remove-btn").addEventListener("click", () => {
+      task.remove();
+    });
     
-    // Remove the original task
-    draggedItem.remove();
+    return task;
+  }
+
+  function initDragAndDrop() {
+    let draggedItem = null;
+
+    // Add event listeners to all task elements
+    document.addEventListener("dragstart", (e) => {
+      if (e.target.classList.contains("task")) {
+        draggedItem = e.target;
+        e.target.classList.add("dragging");
+      }
+    });
+
+    document.addEventListener("dragend", (e) => {
+      if (e.target.classList.contains("task")) {
+        e.target.classList.remove("dragging");
+      }
+    });
+
+    // Column event listeners
+    document.querySelectorAll(".column").forEach(column => {
+      column.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      column.addEventListener("dragenter", (e) => {
+        e.preventDefault();
+        column.classList.add("highlight");
+      });
+
+      column.addEventListener("dragleave", () => {
+        column.classList.remove("highlight");
+      });
+
+      column.addEventListener("drop", (e) => {
+        e.preventDefault();
+        column.classList.remove("highlight");
+        
+        if (draggedItem) {
+          // For Done column: Remove the remove button
+          if (column.id === "done") {
+            draggedItem.querySelector(".remove-btn").style.display = "none";
+          } else {
+            draggedItem.querySelector(".remove-btn").style.display = "block";
+          }
+          
+          column.querySelector(".tasks").appendChild(draggedItem);
+        }
+      });
+    });
   }
 });
