@@ -1,13 +1,148 @@
+/* Modern Weather App Styles */
+:root {
+  --primary: #4361ee;
+  --secondary: #3f37c9;
+  --text: #2b2d42;
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+}
 
-/* Project 2 Specific Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+* {
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
   min-height: 100vh;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/* ... (rest of Project 2 CSS) */
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.search-section {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+#city-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+#city-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+#search-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+#search-btn:hover {
+  background: var(--secondary);
+}
+
+.weather-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  display: none; /* Hidden by default */
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+#weather-icon {
+  width: 60px;
+  height: 60px;
+}
+
+#temperature {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#weather-description {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.weather-details p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.weather-details span:first-child {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.weather-details span:last-child {
+  font-weight: 600;
+}
+
+/* Loading state */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
