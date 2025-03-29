@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const windSpeed = document.getElementById("wind-speed");
 
   // API Configuration
-  const API_KEY = "7f66aa3360e80758169fef41ae772673"; // Replace with your OpenWeatherMap API key
+  const API_KEY = "d973be69aa9140a5d6124599b4044292"; // Replace with your OpenWeatherMap API key
   const API_URL = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${API_KEY}`;
 
   // Event Listeners
