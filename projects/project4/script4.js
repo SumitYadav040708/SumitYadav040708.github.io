@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentQuestionIndex = 0;
   let score = 0;
 
-  const questions = [
+  // 10 questions array
+  const allQuestions = [
     {
       question: "What is 2 + 2?",
       options: ["3", "4", "5"],
@@ -23,8 +24,47 @@ document.addEventListener("DOMContentLoaded", () => {
       question: "Which language runs in a web browser?",
       options: ["Java", "Python", "JavaScript"],
       answer: "JavaScript"
+    },
+    {
+      question: "What is the boiling point of water (in °C)?",
+      options: ["90", "100", "110"],
+      answer: "100"
+    },
+    {
+      question: "What is the largest planet in our Solar System?",
+      options: ["Earth", "Jupiter", "Mars"],
+      answer: "Jupiter"
+    },
+    {
+      question: "Who wrote 'Romeo and Juliet'?",
+      options: ["Charles Dickens", "William Shakespeare", "Jane Austen"],
+      answer: "William Shakespeare"
+    },
+    {
+      question: "Which element has the chemical symbol 'O'?",
+      options: ["Oxygen", "Gold", "Osmium"],
+      answer: "Oxygen"
+    },
+    {
+      question: "What is the smallest prime number?",
+      options: ["1", "2", "3"],
+      answer: "2"
+    },
+    {
+      question: "In which continent is the Amazon Rainforest located?",
+      options: ["Africa", "South America", "Asia"],
+      answer: "South America"
+    },
+    {
+      question: "What is the currency of Japan?",
+      options: ["Yen", "Won", "Dollar"],
+      answer: "Yen"
     }
   ];
+
+  // Shuffle allQuestions and pick 5 random ones
+  const shuffledQuestions = allQuestions.sort(() => 0.5 - Math.random());
+  const questions = shuffledQuestions.slice(0, 5);
 
   function showQuestion() {
     const question = questions[currentQuestionIndex];
@@ -37,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => selectAnswer(option));
       optionsElement.appendChild(button);
     });
-    nextButton.style.display = "none"; // Hide Next button for a new question
+    nextButton.style.display = "none"; // Hide Next button for new question
   }
 
   function selectAnswer(selectedOption) {
@@ -57,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showQuestion();
       resultElement.textContent = "";
     } else {
-      quizContainer.innerHTML = `<h2>Quiz Completed! Your score: ${score}/${questions.length}</h2>`;
+      quizContainer.innerHTML = `<h2>Quiz Completed! Your score: ${score}/5</h2>`;
     }
   });
 
