@@ -14,7 +14,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
   }
 
   // Replace with your actual TMDB API key
-  const apiKey = 'YOUR_TMDB_API_KEY';
+  const apiKey = '02d37f2a18d590b383e11e559ac34e0c';
 
   if (forcedActorSearch) {
     // Force actor search if query ends with "movies"
