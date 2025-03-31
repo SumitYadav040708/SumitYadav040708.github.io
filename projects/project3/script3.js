@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const newTaskInput = document.getElementById("new-task-input");
   const addTaskBtn = document.getElementById("add-task-btn");
   const todoColumn = document.getElementById("todo");
-  const inProgressColumn = document.getElementById("in-progress");
-  const doneColumn = document.getElementById("done");
 
   // Add new task
   addTaskBtn.addEventListener("click", addNewTask);
@@ -14,6 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize drag-and-drop
   initDragAndDrop();
+
+  // Add event delegation for remove buttons
+  document.querySelectorAll(".column").forEach(column => {
+    column.addEventListener("click", (e) => {
+      if (e.target.classList.contains("remove-btn")) {
+        // Only allow removal from To Do and Done columns
+        if (column.id === "in-progress") return;
+        e.target.closest(".task").remove();
+      }
+    });
+  });
 
   function addNewTask() {
     const taskText = newTaskInput.value.trim();
@@ -34,18 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <button class="remove-btn">×</button>
     `;
     
-    // Add remove functionality
-    task.querySelector(".remove-btn").addEventListener("click", () => {
-      task.remove();
-    });
-    
     return task;
   }
 
   function initDragAndDrop() {
     let draggedItem = null;
 
-    // Add event listeners to all task elements
     document.addEventListener("dragstart", (e) => {
       if (e.target.classList.contains("task")) {
         draggedItem = e.target;
@@ -59,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Column event listeners
     document.querySelectorAll(".column").forEach(column => {
       column.addEventListener("dragover", (e) => {
         e.preventDefault();
@@ -79,14 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
         column.classList.remove("highlight");
         
         if (draggedItem) {
-          // For Done column: Remove the remove button
-          if (column.id === "done") {
-            draggedItem.querySelector(".remove-btn").style.display = "none";
-          } else {
-            draggedItem.querySelector(".remove-btn").style.display = "block";
-          }
+          // Remove from previous column
+          draggedItem.remove();
           
-          column.querySelector(".tasks").appendChild(draggedItem);
+          // Clone the task to preserve event listeners
+          const newTask = draggedItem.cloneNode(true);
+          newTask.querySelector(".remove-btn").style.display = 
+            column.id === "in-progress" ? "none" : "block";
+            
+          column.querySelector(".tasks").appendChild(newTask);
         }
       });
     });
