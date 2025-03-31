@@ -1,36 +1,96 @@
-sbody{
+/* General Styles */
+body {
     text-align: center;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light gray text */
+    font-family: 'Arial', sans-serif;
 }
-.btn{
-    height: 200px;
-    width: 200px;
-    border: 8px solid black;
-    border-radius: 10px;
-    margin:2.5rem;
-    
+
+/* Game Title */
+h1, h2 {
+    color: #ff9800; /* Neon orange title */
+    text-shadow: 0px 0px 10px rgba(255, 152, 0, 0.8);
 }
-.container{
+
+/* Buttons Container */
+.container {
     display: flex;
-    justify-content: center;
-}
-.green{
-    background-color: green;
-}
-.yellow{
-    background-color: yellow;
-}
-.red{
-    background-color: red;
-}
-.purple{
-    background-color: purple;
+    flex-direction: column;
+    align-items: center;
 }
 
-.systemflash{
-    background-color:wheat ;
+/* Rows */
+.line1, .line2 {
+    display: flex;
 }
 
+/* Button Styles */
+.btn {
+    height: 180px;
+    width: 180px;
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
-.userflash{
-    background-color: rgb(142, 255, 223)
+/* Neon Button Colors */
+.green {
+    background-color: #00ff00; /* Neon Green */
+    border-color: #00cc00;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.8);
+}
+
+.yellow {
+    background-color: #ffcc00; /* Neon Yellow */
+    border-color: #ffaa00;
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8);
+}
+
+.red {
+    background-color: #ff0033; /* Neon Red */
+    border-color: #cc0022;
+    box-shadow: 0px 0px 15px rgba(255, 0, 51, 0.8);
+}
+
+.purple {
+    background-color: #9900ff; /* Neon Purple */
+    border-color: #7a00cc;
+    box-shadow: 0px 0px 15px rgba(153, 0, 255, 0.8);
+}
+
+/* Button Effects */
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.8);
+}
+
+/* System Flash Effect */
+.systemflash {
+    background-color: white;
+    box-shadow: 0px 0px 20px white;
+}
+
+/* User Click Effect */
+.userflash {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Game Over Flash */
+body.game-over {
+    background-color: #ff0000;
+    transition: background-color 0.3s;
+}
+
+/* Highest Score */
+.high {
+    color: #00ffff; /* Neon Cyan */
+    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
 }
