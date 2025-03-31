@@ -1,5 +1,5 @@
 
-// Smooth scrolling for navigation
+
 document.querySelectorAll('nav a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -9,7 +9,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
   });
 });
 
-// Project card animations
+
 const projectCards = document.querySelectorAll('.project-card');
 
 projectCards.forEach(card => {
@@ -24,5 +24,5 @@ projectCards.forEach(card => {
   });
 });
 
-// Current year for footer
+
 document.getElementById('year').textContent = new Date().getFullYear();
