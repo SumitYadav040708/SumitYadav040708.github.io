@@ -23,8 +23,8 @@ h1 {
   margin-bottom: 1rem;
 }
 
-#searchInput {
-  width: 250px;
+#searchQuery {
+  width: 300px;
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -48,43 +48,37 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* Movie display container */
+/* Result container styling */
 #movieContainer {
-  display: flex;
-  justify-content: center;
   margin-top: 2rem;
 }
 
-/* Movie card in landscape mode */
+/* Styling for a single movie detail card (landscape layout) */
 .movie {
-  display: flex; /* enable side-by-side layout */
+  display: flex;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
+  margin: 1rem auto;
   text-align: left;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
 .movie:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
-/* Poster image on the left */
 .movie img {
-  width: 300px;    /* fixed width for poster */
+  width: 300px;
   height: auto;
   display: block;
 }
 
-/* Movie details on the right */
 .movie-details {
-  flex: 1;         /* take remaining space */
+  flex: 1;
   padding: 1rem;
 }
 
@@ -96,7 +90,49 @@ h1 {
   margin: 0.3rem 0;
 }
 
-/* Error message styling */
+/* Grid layout for multiple movie cards (actor search) */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.movie-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.movie-poster {
+  width: 100%;
+  display: block;
+}
+
+.movie-info {
+  padding: 0.75rem;
+}
+
+.movie-info h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
 .error-message {
   color: #e74c3c;
   font-weight: bold;
