@@ -8,16 +8,16 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background: #eef2f7;
-  color: #444;
+  background: #141414; /* Dark background */
+  color: #e2e2e2;      /* Lighter text color */
 }
 
 /* Header/Navigation */
 header {
-  background: linear-gradient(135deg, #2980b9, #2c3e50);
+  background: #1f1f1f; /* Dark header background */
   color: #fff;
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 nav {
@@ -31,7 +31,7 @@ nav h1 {
 }
 
 nav a {
-  color: #fff;
+  color: #e2e2e2;
   text-decoration: none;
   margin-left: 1.5rem;
   font-weight: 500;
@@ -39,10 +39,10 @@ nav a {
 }
 
 nav a:hover {
-  color: #f39c12;
+  color: #00ffa3; /* Vibrant accent color on hover */
 }
 
-/* Main Content */
+/* Main Content Container */
 .container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -52,7 +52,7 @@ nav a:hover {
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: #2c3e50;
+  color: #fff; /* Main headings in white */
 }
 
 /* Projects Grid */
@@ -64,105 +64,17 @@ h1 {
 }
 
 .project-card {
-  background: #fff;
+  background: #1f1f1f; /* Dark card background */
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 255, 163, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 255, 163, 0.15);
 }
 
 .project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-info {
-  padding: 1.5rem;
-}
-
-.project-info h3 {
-  margin-bottom: 0.5rem;
-  color: #2980b9;
-  font-size: 1.6rem;
-}
-
-.project-info p {
-  color: #7f8c8d;
-  margin-bottom: 1rem;
-}
-
-.project-link {
-  display: inline-block;
-  background: #2980b9;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
-}
-
-.project-link:hover {
-  background: #1c5980;
-}
-
-/* Section Titles */
-section h1 {
-  position: relative;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  font-size: 2.2rem;
-}
-
-section h1::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 4px;
-  width: 50px;
-  background: #f39c12;
-  border-radius: 2px;
-}
-
-/* Contact Section */
-#contact p {
-  font-size: 1.1rem;
-  color: #2c3e50;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #2c3e50;
-  color: #fff;
-  margin-top: 3rem;
-  font-size: 0.95rem;
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-  
-  nav h1 {
-    font-size: 1.6rem;
-  }
-  
-  nav a {
-    margin-left: 1rem;
-  }
-}
-
-/* JS Animation Enhancements (Optional in CSS) */
-.project-card {
-  will-change: transform;
-}
+  width
