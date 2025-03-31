@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie List App</title>
-    <link rel="stylesheet" href="style1.css">
+  <meta charset="UTF-8">
+  <title>Movie Info Search</title>
+  <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="container">
-        <h1>My Favorite Movies</h1>
-        <div class="input-section">
-            <input type="text" 
-                   id="movie-input" 
-                   placeholder="Enter movie name...">
-            <button id="add-btn">Add Movie</button>
-        </div>
-        <div id="movie-list" class="movie-list"></div>
-    </div>
-    <script src="script1.js"></script>
+  <h1>Movie Search</h1>
+  
+  <div class="search-container">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Type a movie title..." 
+      aria-label="Movie Title"
+    >
+    <button id="searchBtn">Search</button>
+  </div>
+  
+  <div id="movieContainer"></div>
+
+  <script src="script1.js"></script>
 </body>
 </html>
