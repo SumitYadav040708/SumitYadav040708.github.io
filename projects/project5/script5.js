@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function analyzeInput(input) {
     const lowerInput = input.toLowerCase();
     
-    // Handle feedback first
     if (botResponses.feedback.patterns.some(word => lowerInput.includes(word))) {
       const feedback = botResponses.feedback.responses[Math.floor(Math.random() * botResponses.feedback.responses.length)];
       const newJoke = botResponses.jokes.responses[Math.floor(Math.random() * botResponses.jokes.responses.length)];
@@ -96,12 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Contextual follow-up
+   
     if (context.lastTopic === "jokes") {
       return "Want to hear another joke? 😄";
     }
 
-    // Default response
+  
     return botResponses.default[Math.floor(Math.random() * botResponses.default.length)];
   }
 
