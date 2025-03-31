@@ -1,3 +1,9 @@
+/* Ensure this file is named style4.css */
+#next-btn {
+  display: none; /* Add this line to hide Next button by default */
+}
+
+/* Rest of your CSS */
 body {
   font-family: Arial, sans-serif;
   background: #f5f5f5;
@@ -50,7 +56,6 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  display: none; /* Hidden by default */
   margin: 0 auto;
 }
 
