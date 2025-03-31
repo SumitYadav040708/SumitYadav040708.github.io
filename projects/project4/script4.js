@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 10 questions array
   const allQuestions = [
     {
-      question: "What is 2 
+      question: "What is 2 + 2?",
+      options: ["3", "4", "5"],
+      answer: "4"
+    },
     {
       question: "What is the capital of France?",
       options: ["London", "Paris", "Berlin"],
