@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const quizContainer = document.getElementById("quiz-container");
   const questionElement = document.getElementById("question");
@@ -38,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => selectAnswer(option));
       optionsElement.appendChild(button);
     });
+    nextButton.style.display = "none"; // Reset Next button visibility
   }
 
   function selectAnswer(selectedOption) {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       resultElement.textContent = "Wrong!";
     }
-    nextButton.style.display = "block";
+    nextButton.style.display = "block"; // Show Next button
   }
 
   nextButton.addEventListener("click", () => {
@@ -56,11 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentQuestionIndex < questions.length) {
       showQuestion();
       resultElement.textContent = "";
-      nextButton.style.display = "none";
     } else {
       quizContainer.innerHTML = `<h2>Quiz Completed! Your score: ${score}/${questions.length}</h2>`;
     }
   });
 
-  showQuestion();
+  showQuestion(); // Initialize first question
 });
