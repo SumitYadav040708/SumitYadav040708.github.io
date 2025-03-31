@@ -1,64 +1,65 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const quizContainer = document.getElementById("quiz-container");
-  const questionElement = document.getElementById("question");
-  const optionsElement = document.getElementById("options");
-  const nextButton = document.getElementById("next-btn");
-  const resultElement = document.getElementById("result");
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
 
-  let currentQuestionIndex = 0;
-  let score = 0;
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-  const questions = [
-    {
-      question: "What is 2 + 2?",
-      options: ["3", "4", "5"],
-      answer: "4"
-    },
-    {
-      question: "What is the capital of France?",
-      options: ["London", "Paris", "Berlin"],
-      answer: "Paris"
-    },
-    {
-      question: "Which language runs in a web browser?",
-      options: ["Java", "Python", "JavaScript"],
-      answer: "JavaScript"
-    }
-  ];
+h1 {
+  text-align: center;
+  color: #333;
+}
 
-  function showQuestion() {
-    const question = questions[currentQuestionIndex];
-    questionElement.textContent = question.question;
-    optionsElement.innerHTML = "";
-    question.options.forEach(option => {
-      const button = document.createElement("div");
-      button.className = "option";
-      button.textContent = option;
-      button.addEventListener("click", () => selectAnswer(option));
-      optionsElement.appendChild(button);
-    });
-    nextButton.style.display = "none"; // Reset Next button visibility
-  }
+#question {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
 
-    const question = questions[currentQuestionIndex];
-    if (selectedOption === question.answer) {
-      score++;
-      resultElement.textContent = "Correct!";
-    } else {
-      resultElement.textContent = "Wrong!";
-    }
-    nextButton.style.display = "block"; // Show Next button
-  }
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-  nextButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      showQuestion();
-      resultElement.textContent = "";
-    } else {
-      quizContainer.innerHTML = `<h2>Quiz Completed! Your score: ${score}/${questions.length}</h2>`;
-    }
-  });
+.option {
+  padding: 10px;
+  background: #e3f2fd;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  showQuestion(); // Initialize first question
-});
+.option:hover {
+  background: #bbdefb;
+}
+
+#next-btn {
+  padding: 10px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  margin: 0 auto;
+}
+
+#next-btn:hover {
+  background: #45a049;
+}
+
+#result {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
