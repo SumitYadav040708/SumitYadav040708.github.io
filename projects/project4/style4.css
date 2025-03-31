@@ -1,36 +1,60 @@
-/* Ensure this file is named style4.css */
-#next-btn {
-  display: none; /* Add this line to hide Next button by default */
+/* ===== DARK THEME NEON QUIZ ===== */
+
+/* -- COLOR PALETTE -- */
+:root {
+  --primary: #bb00ff;       /* Neon Purple */
+  --secondary: #7a00b0;     /* Darker Purple */
+  --text: #e0e0e0;          /* Light Gray */
+  --bg: #0a0a0a;            /* Very Dark Background */
+  --card-bg: #121212;       /* Card Background */
+  --option-bg: #1a1a1a;      /* Option Background */
 }
 
-/* Rest of your CSS */
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+/* RESET / GLOBAL STYLES */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
+/* MAIN CONTAINER */
 .container {
   max-width: 600px;
-  margin: 0 auto;
-  background: white;
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--primary);
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(187, 0, 255, 0.2);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
   text-align: center;
-  color: #333;
 }
 
+/* HEADER */
+h1 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(187, 0, 255, 0.4);
+}
+
+/* QUESTION */
 #question {
   font-size: 1.2em;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
+/* OPTIONS */
 #options {
   display: flex;
   flex-direction: column;
@@ -40,31 +64,60 @@ h1 {
 
 .option {
   padding: 10px;
-  background: #e3f2fd;
+  background: var(--option-bg);
+  border: 1px solid var(--primary);
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .option:hover {
-  background: #bbdefb;
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(187, 0, 255, 0.4);
+  color: #000;
 }
 
+/* NEXT BUTTON */
 #next-btn {
+  display: none; /* Hide Next button initially */
   padding: 10px 15px;
-  background: #4CAF50;
-  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin: 0 auto;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 #next-btn:hover {
-  background: #45a049;
+  background: linear-gradient(135deg, #d100ff, #9200bf);
+  box-shadow: 0 0 12px rgba(187, 0, 255, 0.4);
 }
 
+/* RESULT */
 #result {
   text-align: center;
   margin-top: 20px;
   font-weight: bold;
+}
+
+/* SELECTION HIGHLIGHT */
+::selection {
+  background: var(--primary);
+  color: #000;
+}
+
+/* CUSTOM SCROLLBAR (optional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
 }
