@@ -2,22 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Movie Info Search</title>
+  <title>Movie/Actor Search</title>
   <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-  <h1>Movie Search</h1>
+  <h1>Movie/Actor Search</h1>
   
   <div class="search-container">
     <input 
       type="text" 
-      id="searchInput" 
-      placeholder="Type a movie title..." 
-      aria-label="Movie Title"
+      id="searchQuery" 
+      placeholder="Type a movie title or an actor's name..."
+      aria-label="Search Query"
     >
     <button id="searchBtn">Search</button>
   </div>
-  
+
+  <!-- Container where results will be displayed -->
   <div id="movieContainer"></div>
 
   <script src="script1.js"></script>
