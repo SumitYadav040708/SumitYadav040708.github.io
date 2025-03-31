@@ -48,18 +48,20 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* Movie display */
+/* Movie display container */
 #movieContainer {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
 
+/* Movie card in landscape mode */
 .movie {
+  display: flex; /* enable side-by-side layout */
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  max-width: 400px;
+  max-width: 800px;
   width: 100%;
   margin: 0 auto;
   text-align: left;
@@ -67,18 +69,22 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect */
 .movie:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
+/* Poster image on the left */
 .movie img {
-  width: 100%;
+  width: 300px;    /* fixed width for poster */
   height: auto;
   display: block;
 }
 
+/* Movie details on the right */
 .movie-details {
+  flex: 1;         /* take remaining space */
   padding: 1rem;
 }
 
@@ -90,8 +96,10 @@ h1 {
   margin: 0.3rem 0;
 }
 
+/* Error message styling */
 .error-message {
   color: #e74c3c;
   font-weight: bold;
   margin-top: 2rem;
+  text-align: center;
 }
