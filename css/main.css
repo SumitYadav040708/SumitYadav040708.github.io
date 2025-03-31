@@ -9,7 +9,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   background: #141414; /* Dark background */
-  color: #e2e2e2;      /* Lighter text color */
+  color: #e2e2e2;      /* Light text color */
 }
 
 /* Header/Navigation */
@@ -18,9 +18,7 @@ header {
   color: #fff;
   padding: 1.5rem 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-
-  /* Neon border line at the bottom of the header */
-  border-bottom: 3px solid #00ffa3;
+  border-bottom: 3px solid #ff073a; /* Red neon line below header */
 }
 
 nav {
@@ -42,7 +40,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #00ffa3; /* Vibrant accent color on hover */
+  color: #00eaff; /* Bright neon blue on hover */
 }
 
 /* Main Content Container */
@@ -50,8 +48,19 @@ nav a:hover {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
+  position: relative;
 }
 
+/* Horizontal red neon line between header and main content */
+.container::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #ff073a; /* Red neon */
+  margin-bottom: 1rem;
+}
+
+/* Headings */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
@@ -64,9 +73,7 @@ section h1 {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   color: #fff;
-
-  /* Neon line under section headings */
-  border-bottom: 3px solid #ff4f4f;
+  border-bottom: 3px solid #ff073a; /* Red neon underline */
 }
 
 /* Projects Grid */
@@ -81,29 +88,29 @@ section h1 {
   background: #1f1f1f; /* Dark card background */
   border-radius: 10px;
   overflow: hidden;
-  /* Default border color; will be overridden below by nth-child rules */
-  border: 2px solid #00ffa3;
-  box-shadow: 0 4px 12px rgba(0, 255, 163, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid; /* Base border, color set by nth-child rules */
+  /* Constant neon glow always active */
+  box-shadow: 0 0 15px 3px rgba(0, 174, 255, 0.8);
+  transition: transform 0.3s ease;
 }
 
-/* Cycle through multiple neon border colors for variety */
+/* Cycle through bright neon blue shades for project card borders */
 .project-card:nth-child(4n + 1) {
-  border-color: #00ffa3; /* Neon green/teal */
+  border-color: #00eaff; /* Neon Blue */
 }
 .project-card:nth-child(4n + 2) {
-  border-color: #ff4f4f; /* Neon red */
+  border-color: #00ccff; /* Slightly darker neon blue */
 }
 .project-card:nth-child(4n + 3) {
-  border-color: #f39c12; /* Vibrant orange */
+  border-color: #0099ff; /* Deeper blue */
 }
 .project-card:nth-child(4n + 4) {
-  border-color: #8e44ad; /* Vivid purple */
+  border-color: #0066ff; /* Rich blue */
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 255, 163, 0.15);
+  /* Note: The neon box-shadow remains the same on hover */
 }
 
 .project-card img {
@@ -119,29 +126,33 @@ section h1 {
 
 .project-info h3 {
   margin-bottom: 0.5rem;
-  color: #00ffa3; /* Accent color for project titles */
+  color: #00eaff; /* Neon blue accent */
   font-size: 1.6rem;
 }
 
 .project-info p {
-  color: #b0b0b0; /* Subtle text for descriptions */
+  color: #b0b0b0;
   margin-bottom: 1rem;
 }
 
 .project-link {
   display: inline-block;
-  background: #00ffa3;  /* Button background accent */
-  color: #000;          /* Dark text for contrast */
+  background: #00eaff;
+  color: #000;
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 500;
   transition: background 0.3s ease, transform 0.3s ease;
+  /* Neon glow for the button */
+  box-shadow: 0 0 10px 2px rgba(0, 174, 255, 0.8);
 }
 
 .project-link:hover {
-  background: #00cc85; /* Darken the accent on hover */
+  background: #00ccff;
   transform: translateY(-2px);
+  /* Button retains its neon glow */
+  box-shadow: 0 0 10px 2px rgba(0, 174, 255, 0.8);
 }
 
 /* Contact Section */
@@ -154,10 +165,11 @@ section h1 {
 footer {
   text-align: center;
   padding: 2rem;
-  background: #1f1f1f; /* Dark footer background */
+  background: #1f1f1f;
   color: #ccc;
   margin-top: 3rem;
   font-size: 0.95rem;
+  border-top: 3px solid #ff073a; /* Red neon line above footer */
 }
 
 /* Responsive Typography */
