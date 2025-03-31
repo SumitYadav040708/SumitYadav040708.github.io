@@ -20,14 +20,14 @@ header {
 /* ===== HEADINGS ===== */
 h1 {
   color: #00ffcc; /* Softer green */
-  text-shadow: 0 0 2px #00ffcc, 0 0 6px #00ffcc; /* Reduced glow */
+  text-shadow: 0 0 1px #00ffcc, 0 0 3px #00ffcc; /* Reduced glow */
 }
 
 /* Section Titles */
 section h1 {
   color: #00eaff;
   border-bottom: 4px solid #9d00ff; /* Purple neon line */
-  text-shadow: 0 0 2px #00eaff, 0 0 6px #00eaff;
+  text-shadow: 0 0 1px #00eaff, 0 0 3px #00eaff;
 }
 
 /* ===== PROJECT CARDS ===== */
@@ -49,7 +49,7 @@ footer {
 
 /* ===== ANIMATIONS ===== */
 @keyframes neonPulse {
-  0% { text-shadow: 0 0 3px currentColor, 0 0 7px currentColor; }
-  50% { text-shadow: 0 0 5px currentColor, 0 0 9px currentColor; }
-  100% { text-shadow: 0 0 3px currentColor, 0 0 7px currentColor; }
+  0% { text-shadow: 0 0 2px currentColor, 0 0 5px currentColor; }
+  50% { text-shadow: 0 0 3px currentColor, 0 0 7px currentColor; }
+  100% { text-shadow: 0 0 2px currentColor, 0 0 5px currentColor; }
 }
