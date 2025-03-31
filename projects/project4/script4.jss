@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nextButton.style.display = "none"; // Reset Next button visibility
   }
 
-  function selectAnswer(selectedOption) {
     const question = questions[currentQuestionIndex];
     if (selectedOption === question.answer) {
       score++;
