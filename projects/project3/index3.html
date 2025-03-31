@@ -1,43 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Board</title>
-  <link rel="stylesheet" href="style3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style3.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Task Board</h1>
-    <div class="board">
-      <!-- To Do Column -->
-      <div class="column" id="todo">
-        <h2>To Do</h2>
-        <div class="add-task">
-          <input type="text" id="new-task-input" placeholder="New task...">
-          <button id="add-task-btn">+ Add</button>
-        </div>
-        <div class="tasks">
-          <div class="task">
-            <span>Task 1</span>
-            <button class="remove-btn">×</button>
-          </div>
-        </div>
-      </div>
+    <h1>Simon Says Game</h1>
+    <h2>Press any key to start the game</h2>
 
-      <!-- In Progress Column -->
-      <div class="column" id="in-progress">
-        <h2>In Progress</h2>
-        <div class="tasks"></div>
-      </div>
-
-      <!-- Done Column -->
-      <div class="column" id="done">
-        <h2>Done</h2>
-        <div class="tasks"></div>
-      </div>
+  
+    
+<div class="container">
+    <div class="line1">
+        <div id="red" class="btn red" type="button">1</div>
+        <div id="yellow" class="btn yellow" type="button">2</div>
     </div>
-  </div>
-  <script src="script3.js"></script>
+
+    <div class="line2">
+        <div id="green" class="btn green" type="button">3</div>
+        <div id="purple" class="btn purple" type="button">4</div>
+    </div>
+
+</div>
+
+<h1 class="high">Highest Score</h1>
+
+    <script src="script3.js"></script>
 </body>
 </html>
