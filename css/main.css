@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,17 +8,17 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background: #0a0a0a; /* Darkest background */
-  color: #e2e2e2;      /* Light text color */
+  background: #0a0a0a; 
+  color: #e2e2e2;    
 }
 
-/* ===== HEADER / NAVIGATION ===== */
+
 header {
   background: #121212;
   color: #fff;
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.6); /* Softer red glow */
-  border-bottom: 3px solid #ff073a; /* Red neon divider */
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.6); 
+  border-bottom: 3px solid #ff073a; 
 }
 
 nav {
@@ -29,7 +29,7 @@ nav {
 
 nav h1 {
   font-size: 2rem;
-  text-shadow: 0 0 5px #00ffcc; /* Soft Green Glow */
+  text-shadow: 0 0 5px #00ffcc; 
 }
 
 nav a {
@@ -45,7 +45,7 @@ nav a:hover {
   text-shadow: 0 0 5px #ff073a;
 }
 
-/* ===== MAIN CONTENT CONTAINER ===== */
+
 .container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -53,7 +53,7 @@ nav a:hover {
   position: relative;
 }
 
-/* RED NEON LINE BETWEEN HEADER & MAIN BODY */
+
 .container::before {
   content: "";
   display: block;
@@ -68,10 +68,10 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #00ffcc;
-  text-shadow: 0 0 5px #00ffcc; /* Soft Glow */
+  text-shadow: 0 0 5px #00ffcc; 
 }
 
-/* Section Titles with Neon Glow */
+
 section h1 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
@@ -81,7 +81,7 @@ section h1 {
   text-shadow: 0 0 5px #00eaff;
 }
 
-/* ===== PROJECTS GRID ===== */
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -94,11 +94,11 @@ section h1 {
   border-radius: 10px;
   overflow: hidden;
   border: 2px solid;
-  box-shadow: 0 0 10px 3px rgba(0, 174, 255, 0.5); /* Low, steady glow */
+  box-shadow: 0 0 10px 3px rgba(0, 174, 255, 0.5); 
   transition: transform 0.3s ease;
 }
 
-/* Vibrant Neon Borders - Different Colors */
+
 .project-card:nth-child(4n + 1) { border-color: #00eaff; } /* Blue */
 .project-card:nth-child(4n + 2) { border-color: #00ffcc; } /* Green */
 .project-card:nth-child(4n + 3) { border-color: #ff073a; } /* Red */
@@ -108,14 +108,8 @@ section h1 {
   transform: scale(1.05);
 }
 
-/* Images */
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
 
-/* ===== PROJECT INFO ===== */
+
 .project-info {
   padding: 1.5rem;
 }
@@ -131,7 +125,6 @@ section h1 {
   color: #b0b0b0;
 }
 
-/* ===== BUTTONS ===== */
 .project-link {
   display: inline-block;
   background: #00eaff;
@@ -150,13 +143,13 @@ section h1 {
   box-shadow: 0 0 10px 3px rgba(0, 174, 255, 0.7);
 }
 
-/* ===== CONTACT SECTION ===== */
+
 #contact p {
   font-size: 1.1rem;
   color: #ccc;
 }
 
-/* ===== FOOTER ===== */
+
 footer {
   text-align: center;
   padding: 2rem;
@@ -168,7 +161,6 @@ footer {
   box-shadow: 0 0 5px #ff073a;
 }
 
-/* ===== RESPONSIVE STYLES ===== */
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
   nav h1 { font-size: 1.6rem; }
