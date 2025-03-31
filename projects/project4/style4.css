@@ -1,15 +1,13 @@
-/* ===== DARK THEME NEON QUIZ ===== */
 
-/* -- COLOR PALETTE -- */
 :root {
   --primary: #ff6700;
-  --secondary: #7a00b0;     /* Darker Purple */
-  --text: #e0e0e0;          /* Light Gray */
-  --bg: #0a0a0a;            /* Very Dark Background */
+  --secondary: #7a00b0;     
+  --text: #e0e0e0;         
+  --bg: #0a0a0a;           
   --card-bg: #121212;    
-   --option-bg: #1a1a1a; /* Card Backgr
+   --option-bg: #1a1a1a; 
 
-/* RESET / GLOBAL STYLES */
+
 * {
   margin: 0;
   padding: 0;
@@ -94,20 +92,19 @@ h1 {
   box-shadow: 0 0 12px rgba(187, 0, 255, 0.4);
 }
 
-/* RESULT */
+
 #result {
   text-align: center;
   margin-top: 20px;
   font-weight: bold;
 }
 
-/* SELECTION HIGHLIGHT */
+
 ::selection {
   background: var(--primary);
   color: #000;
 }
 
-/* CUSTOM SCROLLBAR (optional) */
 ::-webkit-scrollbar {
   width: 8px;
 }
