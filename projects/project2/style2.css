@@ -1,16 +1,13 @@
-/* ===== DARK THEME WEATHER APP ===== */
 
-/* -- COLOR PALETTE -- 
-   You can tweak these to adjust neon intensity and overall theme. */
 :root {
-  --primary: #bb00ff;       /* Neon Purple */
-  --secondary: #7a00b0;     /* Darker Purple */
-  --text: #e0e0e0;          /* Light Gray for text */
-  --bg: #0a0a0a;            /* Very Dark Background */
-  --card-bg: #121212;       /* Slightly lighter card background */
+  --primary: #bb00ff;       
+  --secondary: #7a00b0;  
+  --text: #e0e0e0;         
+  --bg: #0a0a0a;           
+  --card-bg: #121212;       
 }
 
-/* RESET / GLOBAL STYLES */
+
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +25,7 @@ body {
   padding: 2rem;
 }
 
-/* MAIN CONTAINER */
+
 .container {
   width: 100%;
   max-width: 500px;
@@ -40,7 +37,7 @@ body {
   text-align: center;
 }
 
-/* HEADER */
+
 h1 {
   color: var(--primary);
   font-size: 2rem;
@@ -49,7 +46,6 @@ h1 {
   position: relative;
 }
 
-/* SEARCH SECTION */
 .search-section {
   display: flex;
   gap: 0.5rem;
@@ -92,7 +88,7 @@ h1 {
   box-shadow: 0 0 12px rgba(187, 0, 255, 0.4);
 }
 
-/* WEATHER CARD */
+
 .weather-card {
   background: var(--card-bg);
   border-radius: 12px;
@@ -105,11 +101,11 @@ h1 {
 }
 
 .weather-card.show {
-  display: block; /* Add a class to show the card when data is loaded */
+  display: block; 
   border-color: var(--primary);
 }
 
-/* WEATHER MAIN SECTION */
+
 .weather-main {
   display: flex;
   align-items: center;
@@ -138,7 +134,7 @@ h1 {
   text-shadow: 0 0 6px rgba(122, 0, 176, 0.4);
 }
 
-/* WEATHER DETAILS (HUMIDITY & WIND) */
+
 .weather-details {
   display: flex;
   justify-content: space-around;
@@ -174,7 +170,7 @@ h1 {
   text-shadow: 0 0 4px rgba(187, 0, 255, 0.4);
 }
 
-/* LOADING STATE */
+
 .loading {
   display: inline-block;
   width: 20px;
@@ -191,13 +187,12 @@ h1 {
   }
 }
 
-/* SELECTION HIGHLIGHT */
 ::selection {
   background: var(--primary);
   color: #000;
 }
 
-/* CUSTOM SCROLLBAR (optional) */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
