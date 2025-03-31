@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // DOM Elements
+  // DOM 
   const cityInput = document.getElementById("city-input");
   const searchBtn = document.getElementById("search-btn");
   const weatherCard = document.querySelector(".weather-card");
@@ -10,22 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const humidity = document.getElementById("humidity");
   const windSpeed = document.getElementById("wind-speed");
 
-  // API Configuration
-  const API_KEY = "d973be69aa9140a5d6124599b4044292"; // Replace with your OpenWeatherMap API key
+  // API
+  const API_KEY = "d973be69aa9140a5d6124599b4044292"; 
   const API_URL = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${API_KEY}`;
 
-  // Event Listeners
+
   searchBtn.addEventListener("click", fetchWeather);
   cityInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") fetchWeather();
   });
 
-  // Fetch Weather Data
+
   async function fetchWeather() {
     const city = cityInput.value.trim();
     if (!city) return;
 
-    // Show loading state
+ 
     searchBtn.innerHTML = '<div class="loading"></div>';
     searchBtn.disabled = true;
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Display Weather Data
+
   function displayWeather(data) {
     cityName.textContent = data.name;
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
@@ -61,15 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
     humidity.textContent = `${data.main.humidity}%`;
     windSpeed.textContent = `${Math.round(data.wind.speed * 3.6)} km/h`;
     
-    // Set weather icon
+   
     weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     weatherIcon.alt = data.weather[0].main;
 
-    // Show card
+  
     weatherCard.style.display = "block";
   }
 
-  // Show Error
+
   function showError(message) {
     weatherCard.style.display = "block";
     cityName.textContent = "Error";
