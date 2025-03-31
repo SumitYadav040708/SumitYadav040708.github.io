@@ -46,7 +46,9 @@ h1 {
   cursor: move;
   user-select: none; /* Prevent text selection while dragging */
 }
-
+#in-progress .remove-btn {
+  display: none !important;
+}
 .task:hover {
   background: #bbdefb;
 }
