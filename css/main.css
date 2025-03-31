@@ -68,7 +68,7 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #00ffcc; /* Neon Green */
-  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; /* Neon Glow */
+  text-shadow: 0 0 3px #00ffcc, 0 0 7px #00ffcc; /* Neon Glow */
 }
 
 /* Section Titles with Neon Glow */
@@ -78,7 +78,7 @@ section h1 {
   padding-bottom: 0.5rem;
   color: #00eaff;
   border-bottom: 4px solid #ff073a; /* Red neon line */
-  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  text-shadow: 0 0 3px #00eaff, 0 0 7px #00eaff;
 }
 
 /* ===== PROJECTS GRID ===== */
@@ -177,9 +177,9 @@ footer {
 
 /* ===== FINAL TOUCH: ADD NEON ANIMATIONS ===== */
 @keyframes neonPulse {
-  0% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
-  50% { text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc; }
-  100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
+  0% { text-shadow: 0 0 2px #00ffcc, 0 0 5px #00ffcc; }
+  50% { text-shadow: 0 0 4px #00ffcc, 0 0 8px #00ffcc; }
+  100% { text-shadow: 0 0 2px #00ffcc, 0 0 5px #00ffcc; }
 }
 
 h1, section h1, nav h1 {
