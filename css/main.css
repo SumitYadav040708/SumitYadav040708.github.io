@@ -1,55 +1,113 @@
-/* ===== HEADER / NAVIGATION ===== */
+/* ===== REDUCED NEON GLOW VERSION ===== */
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #0a0a0a;
+  color: #e2e2e2;
+}
+
+/* Header/Navigation */
 header {
   background: #121212;
   color: #fff;
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.4); /* Purple glow */
-  border-bottom: 3px solid #00ffcc; /* Green neon divider */
+  box-shadow: 0 4px 12px rgba(255, 0, 255, 0.3); /* Reduced purple glow */
+  border-bottom: 3px solid #00ccaa; /* Muted teal */
 }
 
-/* ===== MAIN CONTENT CONTAINER ===== */
+nav h1 {
+  font-size: 2rem;
+  text-shadow: 0 0 4px #00ccaa, 0 0 8px #00ccaa; /* Reduced green glow */
+}
+
+nav a {
+  color: #00a8e8; /* Muted blue */
+  text-decoration: none;
+  margin-left: 1.5rem;
+  text-shadow: 0 0 3px #00a8e8; /* Subtle glow */
+}
+
+nav a:hover {
+  color: #ff3366; /* Muted red */
+  text-shadow: 0 0 4px #ff3366;
+}
+
+/* Main Content */
 .container::before {
   content: "";
   display: block;
   height: 4px;
-  background: #9d00ff; /* Purple neon */
-  box-shadow: 0 0 8px #9d00ff; /* Reduced glow */
+  background: #8a2be2; /* Muted purple */
+  box-shadow: 0 0 6px #8a2be2; /* Reduced glow */
   margin-bottom: 1rem;
 }
 
-/* ===== HEADINGS ===== */
+/* Headings */
 h1 {
-  color: #00ffcc; /* Softer green */
-  text-shadow: 0 0 1px #00ffcc, 0 0 3px #00ffcc; /* Reduced glow */
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #00ccaa; /* Muted green */
+  text-shadow: 0 0 4px #00ccaa, 0 0 8px #00ccaa;
 }
 
-/* Section Titles */
 section h1 {
-  color: #00eaff;
-  border-bottom: 4px solid #9d00ff; /* Purple neon line */
-  text-shadow: 0 0 1px #00eaff, 0 0 3px #00eaff;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  color: #00a8e8; /* Muted blue */
+  border-bottom: 4px solid #8a2be2; /* Muted purple */
+  text-shadow: 0 0 4px #00a8e8, 0 0 8px #00a8e8;
 }
 
-/* ===== PROJECT CARDS ===== */
-.project-card {
-  box-shadow: 0 0 15px 3px rgba(0, 174, 255, 0.5); /* Softer glow */
+/* Project Cards */
+.project-info h3 {
+  margin-bottom: 0.5rem;
+  color: #00a8e8; /* Muted blue */
+  font-size: 1.6rem;
+  text-shadow: 0 0 3px #00a8e8, 0 0 6px #00a8e8;
 }
 
-/* Alternating Neon Borders */
-.project-card:nth-child(4n + 1) { border-color: #00eaff; } /* Blue */
-.project-card:nth-child(4n + 2) { border-color: #00ffcc; } /* Green */
-.project-card:nth-child(4n + 3) { border-color: #9d00ff; } /* Purple */
-.project-card:nth-child(4n + 4) { border-color: #ff073a; } /* Red */
+/* Buttons */
+.project-link {
+  background: #00a8e8; /* Muted blue */
+  color: #000;
+  box-shadow: 0 0 8px 3px rgba(0, 168, 232, 0.5); /* Reduced glow */
+}
 
-/* ===== FOOTER ===== */
+.project-link:hover {
+  background: #00ccaa; /* Muted green */
+  box-shadow: 0 0 10px 4px rgba(0, 204, 170, 0.6);
+}
+
+/* Footer */
 footer {
-  border-top: 4px solid #00ffcc; /* Green neon */
-  box-shadow: 0 0 8px #00ffcc; /* Reduced glow */
+  background: #121212;
+  border-top: 4px solid #00ccaa; /* Muted teal */
+  box-shadow: 0 0 6px #00ccaa; /* Reduced glow */
 }
 
-/* ===== ANIMATIONS ===== */
+/* Animations */
 @keyframes neonPulse {
-  0% { text-shadow: 0 0 2px currentColor, 0 0 5px currentColor; }
-  50% { text-shadow: 0 0 3px currentColor, 0 0 7px currentColor; }
-  100% { text-shadow: 0 0 2px currentColor, 0 0 5px currentColor; }
+  0% { text-shadow: 0 0 3px currentColor, 0 0 6px currentColor; }
+  50% { text-shadow: 0 0 4px currentColor, 0 0 8px currentColor; }
+  100% { text-shadow: 0 0 3px currentColor, 0 0 6px currentColor; }
+}
+
+/* Apply animation only to main headings */
+h1, section h1, nav h1 {
+  animation: neonPulse 2s infinite alternate;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  nav h1 { font-size: 1.6rem; }
+  section h1 { font-size: 1.8rem; }
 }
