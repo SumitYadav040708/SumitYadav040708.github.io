@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultElement = document.getElementById("result");
 
   let currentQuestionIndex = 0;
-  let score = 0;
+  let 
 
   const questions = [
     {
