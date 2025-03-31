@@ -1,48 +1,41 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const movieInput = document.getElementById("movie-input");
-    const addBtn = document.getElementById("add-btn");
-    const movieList = document.getElementById("movie-list");
+document.getElementById('searchBtn').addEventListener('click', function() {
+  const query = document.getElementById('searchInput').value.trim();
 
-    // Load movies from localStorage or initialize empty array
-    let movies = JSON.parse(localStorage.getItem("movies")) || [];
+  // Clear previous results
+  const movieContainer = document.getElementById('movieContainer');
+  movieContainer.innerHTML = '';
 
-    // Initial render
-    renderMovies();
+  // If user didn't type anything, exit the function
+  if (!query) return;
 
-    // Add movie function
-    addBtn.addEventListener("click", addMovie);
-
-    // Enter key support
-    movieInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") addMovie();
+  // Replace 'YOUR_API_KEY' with your actual OMDb API key
+  fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=YOUR_API_KEY`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.Response === "False") {
+        // Movie not found
+        movieContainer.innerHTML = `<p class="error-message">Movie not found. Please try again.</p>`;
+        return;
+      }
+      
+      // If found, create a movie card
+      const poster = data.Poster !== 'N/A' ? data.Poster : 'https://via.placeholder.com/400x600?text=No+Poster';
+      
+      movieContainer.innerHTML = `
+        <div class="movie">
+          <img src="${poster}" alt="${data.Title} Poster">
+          <div class="movie-details">
+            <h2>${data.Title} (${data.Year})</h2>
+            <p><strong>Genre:</strong> ${data.Genre}</p>
+            <p><strong>Director:</strong> ${data.Director}</p>
+            <p><strong>Actors:</strong> ${data.Actors}</p>
+            <p><strong>Plot:</strong> ${data.Plot}</p>
+          </div>
+        </div>
+      `;
+    })
+    .catch(error => {
+      console.error('Error fetching movie data:', error);
+      movieContainer.innerHTML = `<p class="error-message">An error occurred. Please try again.</p>`;
     });
-
-    function addMovie() {
-        const movieName = movieInput.value.trim();
-        
-        if (movieName) {
-            movies.push(movieName);
-            localStorage.setItem("movies", JSON.stringify(movies));
-            movieInput.value = "";
-            renderMovies();
-        }
-    }
-
-    // Delete movie function
-    window.removeMovie = (index) => {
-        movies.splice(index, 1);
-        localStorage.setItem("movies", JSON.stringify(movies));
-        renderMovies();
-    };
-
-    function renderMovies() {
-        movieList.innerHTML = movies
-            .map((movie, index) => `
-                <div class="movie-item">
-                    <span>${movie}</span>
-                    <button onclick="removeMovie(${index})">Delete</button>
-                </div>
-            `)
-            .join("");
-    }
 });
