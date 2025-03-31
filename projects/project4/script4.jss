@@ -1,3 +1,4 @@
+// Ensure this file is named script4.js
 document.addEventListener("DOMContentLoaded", () => {
   const quizContainer = document.getElementById("quiz-container");
   const questionElement = document.getElementById("question");
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => selectAnswer(option));
       optionsElement.appendChild(button);
     });
-    nextButton.style.display = "none"; // Reset Next button visibility
+    nextButton.style.display = "none"; // Hide Next button for new question
   }
 
   function selectAnswer(selectedOption) {
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       resultElement.textContent = "Wrong!";
     }
-    nextButton.style.display = "block"; // Show Next button
+    nextButton.style.display = "block"; // Show Next button after selection
   }
 
   nextButton.addEventListener("click", () => {
