@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentQuestionIndex = 0;
   let score = 0;
 
-  // 10 questions array
+  // 10 questions 
   const allQuestions = [
     {
       question: "What is 2 + 2?",
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       resultElement.textContent = "Wrong!";
     }
-    nextButton.style.display = "block"; // Show Next button after an answer is selected
+    nextButton.style.display = "block"; 
   }
 
   nextButton.addEventListener("click", () => {
@@ -101,5 +101,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  showQuestion(); // Display the first question on page load
+  showQuestion(); 
 });
