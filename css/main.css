@@ -14,10 +14,10 @@ body {
 
 /* ===== HEADER / NAVIGATION ===== */
 header {
-  background: #121212;
+  background: #121212; /* Even darker than body */
   color: #fff;
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.6); /* Softer red glow */
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.8); /* Red glow around header */
   border-bottom: 3px solid #ff073a; /* Red neon divider */
 }
 
@@ -29,11 +29,11 @@ nav {
 
 nav h1 {
   font-size: 2rem;
-  text-shadow: 0 0 5px #00ffcc; /* Soft Green Glow */
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; /* Green neon glow */
 }
 
 nav a {
-  color: #00eaff;
+  color: #00eaff; /* Neon blue */
   text-decoration: none;
   margin-left: 1.5rem;
   font-weight: 500;
@@ -41,8 +41,8 @@ nav a {
 }
 
 nav a:hover {
-  color: #ff073a;
-  text-shadow: 0 0 5px #ff073a;
+  color: #ff073a; /* Red neon */
+  text-shadow: 0 0 4px #ff073a; /* Red glow effect */
 }
 
 /* ===== MAIN CONTENT CONTAINER ===== */
@@ -58,8 +58,8 @@ nav a:hover {
   content: "";
   display: block;
   height: 4px;
-  background: #ff073a;
-  box-shadow: 0 0 5px #ff073a;
+  background: #ff073a; /* Red neon glow */
+  box-shadow: 0 0 10px #ff073a;
   margin-bottom: 1rem;
 }
 
@@ -67,8 +67,8 @@ nav a:hover {
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: #00ffcc;
-  text-shadow: 0 0 5px #00ffcc; /* Soft Glow */
+  color: #00ffcc; /* Neon Green */
+  text-shadow: 0 0 2px #00ffcc; /* Neon Glow */
 }
 
 /* Section Titles with Neon Glow */
@@ -77,8 +77,8 @@ section h1 {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   color: #00eaff;
-  border-bottom: 4px solid #ff073a;
-  text-shadow: 0 0 5px #00eaff;
+  border-bottom: 4px solid #ff073a; /* Red neon line */
+  text-shadow: 0 0 2px #00eaff;
 }
 
 /* ===== PROJECTS GRID ===== */
@@ -90,19 +90,19 @@ section h1 {
 }
 
 .project-card {
-  background: #111;
+  background: #111; /* Very dark background for contrast */
   border-radius: 10px;
   overflow: hidden;
-  border: 2px solid;
-  box-shadow: 0 0 10px 3px rgba(0, 174, 255, 0.5); /* Low, steady glow */
+  border: 2px solid; /* Border defined per nth-child */
+  box-shadow: 0 0 20px 5px rgba(0, 174, 255, 0.8); /* Constant neon glow */
   transition: transform 0.3s ease;
 }
 
 /* Vibrant Neon Borders - Different Colors */
-.project-card:nth-child(4n + 1) { border-color: #00eaff; } /* Blue */
-.project-card:nth-child(4n + 2) { border-color: #00ffcc; } /* Green */
-.project-card:nth-child(4n + 3) { border-color: #ff073a; } /* Red */
-.project-card:nth-child(4n + 4) { border-color: #f39c12; } /* Orange */
+.project-card:nth-child(4n + 1) { border-color: #00eaff; } /* Neon Blue */
+.project-card:nth-child(4n + 2) { border-color: #00ffcc; } /* Neon Green */
+.project-card:nth-child(4n + 3) { border-color: #ff073a; } /* Neon Red */
+.project-card:nth-child(4n + 4) { border-color: #f39c12; } /* Neon Orange */
 
 .project-card:hover {
   transform: scale(1.05);
@@ -124,7 +124,7 @@ section h1 {
   margin-bottom: 0.5rem;
   color: #00eaff;
   font-size: 1.6rem;
-  text-shadow: 0 0 5px #00eaff;
+  text-shadow: 0 0 4px #00eaff;
 }
 
 .project-info p {
@@ -140,14 +140,14 @@ section h1 {
   border-radius: 4px;
   text-decoration: none;
   font-weight: 500;
-  box-shadow: 0 0 10px 3px rgba(0, 174, 255, 0.5);
+  box-shadow: 0 0 15px 5px rgba(0, 174, 255, 0.8); /* Stronger neon glow */
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .project-link:hover {
   background: #00ccff;
   transform: scale(1.1);
-  box-shadow: 0 0 10px 3px rgba(0, 174, 255, 0.7);
+  box-shadow: 0 0 15px 5px rgba(0, 174, 255, 1); /* Glow intensifies */
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -164,8 +164,8 @@ footer {
   color: #ccc;
   margin-top: 3rem;
   font-size: 0.95rem;
-  border-top: 4px solid #ff073a;
-  box-shadow: 0 0 5px #ff073a;
+  border-top: 4px solid #ff073a; /* Red neon glow */
+  box-shadow: 0 0 12px #ff073a;
 }
 
 /* ===== RESPONSIVE STYLES ===== */
@@ -174,3 +174,14 @@ footer {
   nav h1 { font-size: 1.6rem; }
   nav a { margin-left: 1rem; }
 }
+
+/* ===== FINAL TOUCH: ADD NEON ANIMATIONS ===== */
+@keyframes neonPulse {
+  0% { text-shadow: 0 0 2px #00ffcc; }
+  50% { text-shadow: 0 0 4px #00ffcc; }
+  100% { text-shadow: 0 0 2px #00ffcc; }
+}
+
+h1, section h1, nav h1 {
+  animation: neonPulse 1.5s infinite alternate;
+} dont make the neon glow and go back to low, just keep the shadow at a low glow
