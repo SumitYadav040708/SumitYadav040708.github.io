@@ -1,4 +1,4 @@
-/* ===== DARK THEME OVERHAUL ===== */
+/* DARK THEME  */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ body {
   line-height: 1.6;
 }
 
-/* ===== TYPOGRAPHY ===== */
+/*  TYPOGRAPHY */
 h1 {
   color: #00ffcc;
   text-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
@@ -34,7 +34,7 @@ h1::after {
   box-shadow: 0 0 12px #00ffcc;
 }
 
-/* ===== SEARCH COMPONENT ===== */
+
 .search-container {
   margin: 2rem auto;
   max-width: 600px;
@@ -77,7 +77,7 @@ h1::after {
   box-shadow: 0 0 12px rgba(0, 255, 204, 0.4);
 }
 
-/* ===== MOVIE GRID LAYOUT ===== */
+
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -121,7 +121,7 @@ h1::after {
   font-size: 0.85rem;
 }
 
-/* ===== LANDSCAPE MOVIE DETAIL CARD ===== */
+
 .movie-detail {
   display: flex;
   background: #121212;
@@ -193,7 +193,7 @@ h1::after {
   font-size: 0.85rem;
 }
 
-/* ===== UTILITY CLASSES ===== */
+
 .error-message {
   color: #ff4444;
   padding: 1.5rem;
@@ -223,7 +223,7 @@ h1::after {
   border-radius: 4px;
 }
 
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
 @media (max-width: 768px) {
   body {
     padding: 1.5rem;
