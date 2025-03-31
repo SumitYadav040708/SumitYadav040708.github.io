@@ -5,19 +5,19 @@ document.getElementById('searchBtn').addEventListener('click', () => {
 
   if (!query) return;
 
-  // Check if the query ends with "movies" (case-insensitive)
+
   let forcedActorSearch = false;
   if (query.toLowerCase().endsWith(' movies')) {
     forcedActorSearch = true;
-    // Remove the word "movies" from the query
+   
     query = query.substring(0, query.toLowerCase().lastIndexOf(' movies')).trim();
   }
 
-  // Replace with your actual TMDB API key
+
   const apiKey = '02d37f2a18d590b383e11e559ac34e0c';
 
   if (forcedActorSearch) {
-    // Force actor search if query ends with "movies"
+    
     fetch(`https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${encodeURIComponent(query)}`)
       .then(response => response.json())
       .then(data => {
@@ -25,7 +25,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
           movieContainer.innerHTML = `<p class="error-message">No actor found with that name. Please try again.</p>`;
           return;
         }
-        // Use the first matching person
+       
         const personResult = data.results[0];
         fetch(`https://api.themoviedb.org/3/person/${personResult.id}/movie_credits?api_key=${apiKey}`)
           .then(response => response.json())
@@ -36,7 +36,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
               return;
             }
 
-            // Create a grid layout for the actor's movies
+         
             const grid = document.createElement('div');
             grid.classList.add('movies-grid');
 
@@ -68,7 +68,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
         movieContainer.innerHTML = `<p class="error-message">An error occurred. Please try again.</p>`;
       });
   } else {
-    // Normal multi-search for movies and people
+    
     fetch(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${encodeURIComponent(query)}`)
       .then(response => response.json())
       .then(data => {
@@ -76,7 +76,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
           movieContainer.innerHTML = `<p class="error-message">No results found. Please try a different query.</p>`;
           return;
         }
-        // Try to find a movie result first
+       
         const movieResult = data.results.find(item => item.media_type === 'movie');
 
         if (movieResult) {
@@ -94,7 +94,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
             </div>
           `;
         } else {
-          // If no movie, check for a person and fetch their movie credits
+          
           const personResult = data.results.find(item => item.media_type === 'person');
 
           if (personResult) {
